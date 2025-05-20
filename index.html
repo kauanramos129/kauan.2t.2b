@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Corinthians</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;600&display=swap');
+
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #000000, #222222);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* Container */
+  .container {
+    background: rgba(0, 0, 0, 0.8);
+    max-width: 520px;
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(255, 255, 255, 0.1);
+    padding: 32px 40px;
+    border: 2px solid #ffd700;
+  }
+
+  /* Header */
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 8px;
+    color: #ffd700;
+    text-shadow: 0 0 8px #ffda44;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  header p {
+    font-weight: 600;
+    font-style: italic;
+    color: #ddd;
+    font-size: 1.1rem;
+  }
+
+  /* Pergunta */
+  .question {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 26px;
+    line-height: 1.3;
+  }
+
+  /* Lista de respostas */
+  .answers {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 38px 0;
+  }
+
+  .answers li {
+    margin-bottom: 14px;
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  label.answer-label {
+    background: #111111;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #eee;
+    border: 2px solid transparent;
+    user-select: none;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 6px rgba(0,0,0,0.8);
+  }
+
+  label.answer-label:hover {
+    background-color: #222222;
+    box-shadow: 0 4px 15px #ffd700aa;
+  }
+
+  input[type="radio"]:checked + label.answer-label {
+    background-color: #ffd700;
+    color: #111111;
+    font-weight: 700;
+    border-color: #fff14f;
+    box-shadow: 0 0 16px #ffec59;
+  }
+
+  /* Botão próximo */
+  #next-btn {
+    width: 100%;
+    padding: 18px 0;
+    background: linear-gradient(90deg, #ffda44, #e6c032);
+    border: none;
+    border-radius: 36px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #111111;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    box-shadow: 0 6px 25px #ffda4411;
+    transition: background 0.4s ease;
+    user-select: none;
+  }
+  #next-btn:hover:not(:disabled) {
+    background: linear-gradient(90deg, #ffe97a, #e9cb51);
+    box-shadow: 0 8px 38px #ffec5988;
+  }
+  #next-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    background: #555555;
+    color: #ccc;
+    box-shadow: none;
+  }
+
+  /* Resultado */
+  .result {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #ffda44;
+    text-shadow: 0 0 14px #aa8f00;
+    margin-top: 22px;
+    line-height: 1.3;
+  }
+  .result p {
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: #ffe27f;
+  }
+
+  /* Rodapé */
+  footer {
+    margin-top: 42px;
+    font-size: 0.95rem;
+    text-align: center;
+    color: #bbb;
+    user-select: none;
+  }
+
+  /* Responsivo */
+  @media (max-width: 600px) {
+    .container {
+      padding: 28px 32px;
+    }
+    header h1 {
+      font-size: 2.3rem;
+    }
+    #next-btn {
+      font-size: 1.15rem;
+      padding: 16px 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main" aria-label="Quiz Corinthians">
+    <header>
+      <h1>Corinthians</h1>
+      <p>O desafio dos verdadeiros fãs do Timão!</p>
+    </header>
+
+    <div id="quiz-container" aria-live="polite" aria-atomic="true">
+      <!-- Perguntas carregadas aqui -->
+    </div>
+
+    <button id="next-btn" disabled aria-disabled="true" aria-label="Próxima pergunta">
+      Próxima
+    </button>
+
+    <div class="result" id="result" role="alert"></div>
+
+    <footer>
+      &copy; 2025 Quiz Corinthians • Vai Timão!
+    </footer>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "Em que ano o Corinthians foi fundado?",
+        answers: [
+          { text: "1910", correct: true },
+          { text: "1920", correct: false },
+          { text: "1900", correct: false },
+          { text: "1895", correct: false }
+        ]
+      },
+      {
+        question: "Qual é o estádio oficial do Corinthians?",
+        answers: [
+          { text: "Maracanã", correct: false },
+          { text: "Allianz Parque", correct: false },
+          { text: "Arena Corinthians", correct: true },
+          { text: "Morumbi", correct: false }
+        ]
+      },
+      {
+        question: "Quantas vezes o Corinthians ganhou a Copa Libertadores até 2023?",
+        answers: [
+          { text: "2 vezes", correct: true },
+          { text: "3 vezes", correct: false },
+          { text: "1 vez", correct: false },
+          { text: "4 vezes", correct: false }
+        ]
+      },
+      {
+        question: "Qual jogador é conhecido como 'O Fenômeno do Timão'?",
+        answers: [
+          { text: "Ronaldo Nazário", correct: true },
+          { text: "Sócrates", correct: false },
+          { text: "Marcelinho Carioca", correct: false },
+          { text: "Neto", correct: false }
+        ]
+      },
+      {
+        question: "Qual o apelido popular do Corinthians?",
+        answers: [
+          { text: "Timão", correct: true },
+          { text: "Furacão", correct: false },
+          { text: "Galo", correct: false },
+          { text: "Tricolor", correct: false }
+        ]
+      }
+    ];
+
+    const quizContainer = document.getElementById('quiz-container');
+    const nextBtn = document.getElementById('next-btn');
+    const resultDiv = document.getElementById('result');
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function loadQuestion() {
+      resetState();
+      const currentQuiz = quizData[currentQuestion];
+
+      const questionEl = document.createElement('div');
+      questionEl.className = 'question';
+      questionEl.textContent = `${currentQuestion + 1}. ${currentQuiz.question}`;
+      quizContainer.appendChild(questionEl);
+
+      const answersList = document.createElement('ul');
+      answersList.className = 'answers';
+
+      currentQuiz.answers.forEach((answer, idx) => {
+        const li = document.createElement('li');
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.id = `answer${idx}`;
+        input.name = 'answer';
+        input.value = answer.correct;
+
+        const label = document.createElement('label');
+        label.htmlFor = `answer${idx}`;
+        label.className = 'answer-label';
+        label.textContent = answer.text;
+
+        li.appendChild(input);
+        li.appendChild(label);
+        answersList.appendChild(li);
+      });
+
+      quizContainer.appendChild(answersList);
+    }
+
+    function resetState() {
+      nextBtn.disabled = true;
+      nextBtn.setAttribute('aria-disabled', 'true');
+      resultDiv.textContent = '';
+      quizContainer.innerHTML = '';
+    }
+
+    quizContainer.addEventListener('change', e => {
+      if (e.target.name === 'answer') {
+        nextBtn.disabled = false;
+        nextBtn.setAttribute('aria-disabled', 'false');
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+      if (!selectedAnswer) return;
+
+      if (selectedAnswer.value === 'true') {
+        score++;
+      }
+
+      currentQuestion++;
+
+      if (currentQuestion < quizData.length) {
+        loadQuestion();
+        nextBtn.disabled = true;
+        nextBtn.setAttribute('aria-disabled', 'true');
+      } else {
+        showResult();
+      }
+    });
+
+    function showResult() {
+      quizContainer.innerHTML = '';
+      nextBtn.style.display = 'none';
+      resultDiv.innerHTML = `Você acertou <strong>${score}</strong> de <strong>${quizData.length}</strong> perguntas!`;
+
+      const feedback = document.createElement('p');
+      if (score === quizData.length) {
+        feedback.textContent = 'Sensacional! Você é um verdadeiro corinthiano!';
+      } else if (score >= quizData.length / 2) {
+        feedback.textContent = 'Bom trabalho! Você conhece bem o Timão.';
+      } else {
+        feedback.textContent = 'A torcida do Timão espera por você - estude mais!';
+      }
+      resultDiv.appendChild(feedback);
+    }
+
+    // Carrega a primeira pergunta no início
+    loadQuestion();
+  </script>
+</body>
+</html>
