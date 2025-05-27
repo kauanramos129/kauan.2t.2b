@@ -3,343 +3,593 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Corinthians</title>
+<title>Warzone - Tudo sobre Call of Duty: Warzone</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:wght@400;600&display=swap');
-
-  /* Reset */
-  * {
+  /* Reset & base */
+  *, *::before, *::after {
     box-sizing: border-box;
   }
   body {
     margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    background: linear-gradient(135deg, #000000, #222222);
-    color: #fff;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #0f111a;
+    color: #e0e0e0;
+    line-height: 1.6;
   }
-
-  /* Container */
-  .container {
-    background: rgba(0, 0, 0, 0.8);
-    max-width: 520px;
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 5px 25px rgba(255, 255, 255, 0.1);
-    padding: 32px 40px;
-    border: 2px solid #ffd700;
+  a {
+    color: #1ea7fd;
+    text-decoration: none;
   }
-
-  /* Header */
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
   header {
-    text-align: center;
-    margin-bottom: 36px;
+    background: #121820;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
   header h1 {
-    font-family: 'Anton', sans-serif;
-    font-weight: 700;
-    font-size: 3rem;
-    margin-bottom: 8px;
-    color: #ffd700;
-    text-shadow: 0 0 8px #ffda44;
-    letter-spacing: 2px;
+    margin: 0;
+    font-size: 1.8rem;
+    color: #1ea7fd;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
   }
-  header p {
+  nav {
+    margin-top: 0.5rem;
+  }
+  nav a {
+    margin-right: 1.4rem;
     font-weight: 600;
-    font-style: italic;
-    color: #ddd;
+    font-size: 1rem;/* Reset & base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f111a;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+a {
+  color: #1ea7fd;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+header {
+  background: #121820;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1ea7fd;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+nav {
+  margin-top: 0.5rem;
+}
+nav a {
+  margin-right: 1.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #3ac4ff;
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1rem;
+}
+section {
+  margin-bottom: 3rem;
+  border-radius: 12px;
+  background: #181e2a;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 0 15px rgba(30, 167, 253, 0.15);
+}
+section h2 {
+  color: #1ea7fd;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #1ea7fd;
+  padding-bottom: 0.4rem;
+}
+section p {
+  font-size: 1.1rem;
+  color: #cbd2e8;
+}
+section ul {
+  list-style: inside disc;
+  margin: 1rem 0;
+  padding-left: 0;
+  color: #b0bec5;
+}
+section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Gallery styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #1ea7fdaa;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #121820;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #1ea7fd22;
+}
+
+/* Responsive typography */
+@media(max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+    margin-right: 1rem;
+  }
+  main {
+    margin: 1rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+  section p, section ul {
+    font-size: 1rem;
+  }
+}
+
+/* Scroll to top button */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;/* Reset & base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f111a;
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+a {
+  color: #1ea7fd;
+  text-decoration: none;
+}
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+header {
+  background: #121820;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #1ea7fd;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+nav {
+  margin-top: 0.5rem;
+}
+nav a {
+  margin-right: 1.4rem;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+nav a:hover {
+  color: #3ac4ff;
+}
+
+main {
+  max-width: 1100px;
+  margin: 2rem auto 4rem auto;
+  padding: 0 1rem;
+}
+section {
+  margin-bottom: 3rem;
+  border-radius: 12px;
+  background: #181e2a;
+  padding: 1.8rem 2rem;
+  box-shadow: 0 0 15px rgba(30, 167, 253, 0.15);
+}
+section h2 {
+  color: #1ea7fd;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #1ea7fd;
+  padding-bottom: 0.4rem;
+}
+section p {
+  font-size: 1.1rem;
+  color: #cbd2e8;
+}
+section ul {
+  list-style: inside disc;
+  margin: 1rem 0;
+  padding-left: 0;
+  color: #b0bec5;
+}
+section ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* Gallery styles */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #1ea7fdaa;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #121820;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  border-top: 1px solid #1ea7fd22;
+}
+
+/* Responsive typography */
+@media(max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  nav a {
+    font-size: 0.9rem;
+    margin-right: 1rem;
+  }
+  main {
+    margin: 1rem;
+  }
+  section h2 {
+    font-size: 1.5rem;
+  }
+  section p, section ul {
+    font-size: 1rem;
+  }
+}
+
+/* Scroll to top button */
+#topBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #1ea7fd;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.7rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px #1ea7fdaa;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  display: none;
+  z-index: 110;
+}
+#topBtn:hover {
+  opacity: 1;
+}
+
+
+  background: #1ea7fd;
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem 0.7rem;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px #1ea7fdaa;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  display: none;
+  z-index: 110;
+}
+#topBtn:hover {
+  opacity: 1;
+}
+
+
+    transition: color 0.3s ease;
+  }
+  nav a:hover {
+    color: #3ac4ff;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    margin-bottom: 3rem;
+    border-radius: 12px;
+    background: #181e2a;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 0 15px rgba(30, 167, 253, 0.15);
+  }
+  section h2 {
+    color: #1ea7fd;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.9rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #1ea7fd;
+    padding-bottom: 0.4rem;
+  }
+  section p {
     font-size: 1.1rem;
+    color: #cbd2e8;
+  }
+  section ul {
+    list-style: inside disc;
+    margin: 1rem 0;
+    padding-left: 0;
+    color: #b0bec5;
+  }
+  section ul li {
+    margin-bottom: 0.5rem;
   }
 
-  /* Pergunta */
-  .question {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-bottom: 26px;
-    line-height: 1.3;
+  /* Gallery styles */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 1rem;
   }
-
-  /* Lista de respostas */
-  .answers {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 38px 0;
-  }
-
-  .answers li {
-    margin-bottom: 14px;
-  }
-
-  input[type="radio"] {
-    display: none;
-  }
-
-  label.answer-label {
-    background: #111111;
-    padding: 16px 22px;
-    display: flex;
-    align-items: center;
-    border-radius: 14px;
-    cursor: pointer;
-    font-weight: 500;
-    font-size: 1.1rem;
-    color: #eee;
-    border: 2px solid transparent;
-    user-select: none;
-    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 6px rgba(0,0,0,0.8);
-  }
-
-  label.answer-label:hover {
-    background-color: #222222;
-    box-shadow: 0 4px 15px #ffd700aa;
-  }
-
-  input[type="radio"]:checked + label.answer-label {
-    background-color: #ffd700;
-    color: #111111;
-    font-weight: 700;
-    border-color: #fff14f;
-    box-shadow: 0 0 16px #ffec59;
-  }
-
-  /* Botão próximo */
-  #next-btn {
+  .gallery img {
     width: 100%;
-    padding: 18px 0;
-    background: linear-gradient(90deg, #ffda44, #e6c032);
-    border: none;
-    border-radius: 36px;
-    font-size: 1.35rem;
-    font-weight: 700;
-    color: #111111;
-    letter-spacing: 1.2px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #1ea7fdaa;
+    transition: transform 0.3s ease;
     cursor: pointer;
-    box-shadow: 0 6px 25px #ffda4411;
-    transition: background 0.4s ease;
-    user-select: none;
   }
-  #next-btn:hover:not(:disabled) {
-    background: linear-gradient(90deg, #ffe97a, #e9cb51);
-    box-shadow: 0 8px 38px #ffec5988;
-  }
-  #next-btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-    background: #555555;
-    color: #ccc;
-    box-shadow: none;
+  .gallery img:hover {
+    transform: scale(1.05);
   }
 
-  /* Resultado */
-  .result {
-    text-align: center;
-    font-size: 1.7rem;
-    font-weight: 700;
-    color: #ffda44;
-    text-shadow: 0 0 14px #aa8f00;
-    margin-top: 22px;
-    line-height: 1.3;
-  }
-  .result p {
-    margin-top: 14px;
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: #ffe27f;
-  }
-
-  /* Rodapé */
+  /* Footer */
   footer {
-    margin-top: 42px;
-    font-size: 0.95rem;
+    background: #121820;
+    padding: 1rem 2rem;
     text-align: center;
-    color: #bbb;
-    user-select: none;
+    font-size: 0.9rem;
+    color: #666;
+    border-top: 1px solid #1ea7fd22;
   }
 
-  /* Responsivo */
-  @media (max-width: 600px) {
-    .container {
-      padding: 28px 32px;
-    }
+  /* Responsive typography */
+  @media(max-width: 600px) {
     header h1 {
-      font-size: 2.3rem;
+      font-size: 1.5rem;
     }
-    #next-btn {
-      font-size: 1.15rem;
-      padding: 16px 0;
+    nav a {
+      font-size: 0.9rem;
+      margin-right: 1rem;
     }
+    main {
+      margin: 1rem;
+    }
+    section h2 {
+      font-size: 1.5rem;
+    }
+    section p, section ul {
+      font-size: 1rem;
+    }
+  }
+
+  /* Scroll to top button */
+  #topBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #1ea7fd;
+    border: none;
+    border-radius: 50%;
+    padding: 0.6rem 0.7rem;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 15px #1ea7fdaa;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    display: none;
+    z-index: 110;
+  }
+  #topBtn:hover {
+    opacity: 1;
   }
 </style>
 </head>
 <body>
-  <div class="container" role="main" aria-label="Quiz Corinthians">
-    <header>
-      <h1>Corinthians</h1>
-      <p>O desafio dos verdadeiros fãs do Timão!</p>
-    </header>
+  <header>
+    <h1>Warzone - Tudo sobre Call of Duty: Warzone</h1>
+    <nav role="navigation" aria-label="Menu principal">
+      <a href="#sobre">Sobre Warzone</a>
+      <a href="#modos">Modos de Jogo</a>
+      <a href="#mapas">Mapas</a>
+      <a href="#armas">Armas</a>
+      <a href="#estrategias">Estratégias</a>
+      <a href="#atualizacoes">Atualizações</a>
+      <a href="#noticias">Notícias</a>
+      <a href="#links">Links Úteis</a>
+    </nav>
+  </header>
 
-    <div id="quiz-container" aria-live="polite" aria-atomic="true">
-      <!-- Perguntas carregadas aqui -->
-    </div>
+  <main>
+    <section id="sobre" tabindex="0">
+      <h2>Sobre Warzone</h2>
+      <p>Call of Duty: Warzone é um jogo Battle Royale free-to-play que se tornou um dos maiores e mais populares da categoria. Desenvolvido pela Infinity Ward e Raven Software, Warzone oferece combates intensos, variedade enorme de armas e equipamentos, além de grandes mapas com muitos modos de jogo para diferentes estilos de jogadores.</p>
+      <p>O jogo acontece principalmente no mapa Verdansk e seu sucessor cidade Rebirth Island, com múltiplos pontos de interesse e ambientes diversos. A integração com outras versões e franquias Call of Duty traz uma experiência dinâmica e em constante evolução.</p>
+    </section>
 
-    <button id="next-btn" disabled aria-disabled="true" aria-label="Próxima pergunta">
-      Próxima
-    </button>
+    <section id="modos" tabindex="0">
+      <h2>Modos de Jogo</h2>
+      <ul>
+        <li><strong>Battle Royale:</strong> Último time ou jogador sobrevivente vence.</li>
+        <li><strong>Plunder:</strong> Time deve coletar o máximo de dinheiro possível.</li>
+        <li><strong>Resurgence:</strong> Jogadores podem reviver rapidamente em certas zonas.</li>
+        <li><strong>Zombies:</strong> Cooperativo contra hordas de zumbis.</li>
+        <li><strong>Eventos Temporários:</strong> Modos especiais que aparecem em temporadas específicas.</li>
+      </ul>
+    </section>
 
-    <div class="result" id="result" role="alert"></div>
+    <section id="mapas" tabindex="0">
+      <h2>Mapas</h2>
+      <p>Os mapas principais são:</p>
+      <ul>
+        <li><strong>Verdansk:</strong> Mapa clássico expansivo com ambientes urbanos, rurais e industriais. Atualizado frequentemente.</li>
+        <li><strong>Rebirth Island:</strong> Mapa menor focado em combates rápidos e respawns.</li>
+        <li><strong>Caldera:</strong> Mapa com tema de ilha vulcânica, adicionada em temporadas recentes.</li>
+      </ul>
+      <div class="gallery" aria-label="Galeria de imagens dos mapas principais">
+        <img src="download.jpeg" alt="Mapa Verdansk" loading="lazy" />
+        <img src="download (1).jpeg" alt="Mapa Caldera" loading="lazy" />
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1962663/capsule_616x353.jpg?t=1697823343" alt="Mapa Rebirth Island" loading="lazy" />
+      </div>
+    </section>
 
-    <footer>
-      &copy; 2025 Quiz Corinthians • Vai Timão!
-    </footer>
-  </div>
+    <section id="armas" tabindex="0">
+      <h2>Armas</h2>
+      <p>Warzone possui um vasto arsenal de armas. Algumas categorias principais são:</p>
+      <ul>
+        <li><strong>Assault Rifles (Rifles de Assalto):</strong> Versáteis para curto e médio alcance.</li>
+        <li><strong>SMGs (Submetralhadoras):</strong> Alta cadência de tiro, ideal para combate próximo.</li>
+        <li><strong>Sniper Rifles (Rifles de Precisão):</strong> Para tiros de longa distância.</li>
+        <li><strong>Shotguns (Espingardas):</strong> Combate corpo a corpo extremamente letal.</li>
+        <li><strong>LMGs (Metralhadoras Leves):</strong> Grande capacidade de munição e dano sustentado.</li>
+        <li><strong>Launchers e explosivos:</strong> Para dano em área e destruição de equipamentos.</li>
+      </ul>
+      <p>Dicas para escolher armas:</p>
+      <ul>
+        <li>Combine uma arma de longo alcance com uma de curto alcance no seu loadout.</li>
+        <li>Customize suas armas com anexos para melhorar precisão, alcance e mobilidade.</li>
+      </ul>
+      <p>Para melhores loadouts atuais, consulte sites especializados como <a href="https://warzoneloadout.games/pt-br/" target="_blank" rel="noopener">Warzone Loadouts</a>.</p>
+    </section>
 
-  <script>
-    const quizData = [
-      {
-        question: "Em que ano o Corinthians foi fundado?",
-        answers: [
-          { text: "1910", correct: true },
-          { text: "1920", correct: false },
-          { text: "1900", correct: false },
-          { text: "1895", correct: false }
-        ]
-      },
-      {
-        question: "Qual é o estádio oficial do Corinthians?",
-        answers: [
-          { text: "Maracanã", correct: false },
-          { text: "Allianz Parque", correct: false },
-          { text: "Arena Corinthians", correct: true },
-          { text: "Morumbi", correct: false }
-        ]
-      },
-      {
-        question: "Quantas vezes o Corinthians ganhou a Copa Libertadores até 2023?",
-        answers: [
-          { text: "2 vezes", correct: true },
-          { text: "3 vezes", correct: false },
-          { text: "1 vez", correct: false },
-          { text: "4 vezes", correct: false }
-        ]
-      },
-      {
-        question: "Qual jogador é conhecido como 'O Fenômeno do Timão'?",
-        answers: [
-          { text: "Ronaldo Nazário", correct: true },
-          { text: "Sócrates", correct: false },
-          { text: "Marcelinho Carioca", correct: false },
-          { text: "Neto", correct: false }
-        ]
-      },
-      {
-        question: "Qual o apelido popular do Corinthians?",
-        answers: [
-          { text: "Timão", correct: true },
-          { text: "Furacão", correct: false },
-          { text: "Galo", correct: false },
-          { text: "Tricolor", correct: false }
-        ]
-      }
-    ];
+    <section id="estrategias" tabindex="0">
+      <h2>Estratégias</h2>
+      <ul>
+        <li><strong>Escolha o Pouso Certo:</strong> Prefira locais com bons saques, porém evite muitos inimigos no início.</li>
+        <li><strong>Gerencie seu Contrato:</strong> Façam contratos para obter dinheiro, vantagens e informações úteis.</li>
+        <li><strong>Comunicação:</strong> Trabalhe em equipe usando comunicação constante para controlar áreas e engajar inimigos.</li>
+        <li><strong>Use o Gulag:</strong> Aproveite a chance de retorno ganhando no Gulag.</li>
+        <li><strong>Movimente-se Inteligentemente:</strong> Cuidado com a zona azul e não fique exposto em áreas abertas.</li>
+        <li><strong>Equipamentos:</strong> Leve granadas e equipamentos táticos para controle de áreas e emboscadas.</li>
+      </ul>
+    </section>
 
-    const quizContainer = document.getElementById('quiz-container');
-    const nextBtn = document.getElementById('next-btn');
-    const resultDiv = document.getElementById('result');
+    <section id="atualizacoes" tabindex="0">
+      <h2>Atualizações Recentes</h2>
+      <p>Warzone está sempre em evolução com novas temporadas, mapas, armas, modos e ajustes de gameplay. Para as últimas notas de atualização e novidades, visite as fontes oficiais:</p>
+      <ul>
+        <li><a href="https://www.callofduty.com/br/pt/patchnotes" target="_blank" rel="noopener">Notas de Atualização Call of Duty</a></li>
+        <li><a href="https://www.callofduty.com/br/pt/blog/warzone" target="_blank" rel="noopener">Blog oficial Warzone</a></li>
+      </ul>
+    </section>
 
-    let currentQuestion = 0;
-    let score = 0;
+    <section id="noticias" tabindex="0">
+      <h2>Notícias & Eventos</h2>
+      <p>Fique de olho em eventos especiais, modos temporários e colaborativos que Warzone frequentemente oferece em novas temporadas. Esses eventos trazem diversão extra e recompensas únicas.</p>
+      <p>Para notícias atualizadas e anúncios oficiais:</p>
+      <ul>
+        <li><a href="https://www.callofduty.com/br/pt/blog" target="_blank" rel="noopener">Blog Call of Duty</a></li>
+        <li><a href="https://www.activision.com/br/" target="_blank" rel="noopener">Site Activision</a></li>
+      </ul>
+    </section>
 
-    function loadQuestion() {
-      resetState();
-      const currentQuiz = quizData[currentQuestion];
+    <section id="links" tabindex="0">
+      <h2>Links Úteis</h2>
+      <ul>
+        <li><a href="https://www.callofduty.com/pt/warzone" target="_blank" rel="noopener">Site oficial Call of Duty: Warzone</a></li>
+        <li><a href="https://warzoneloadout.games/pt-br/" target="_blank" rel="noopener">Warzone Loadouts - Melhores acertos</a></li>
+        <li><a href="https://support.activision.com/br/pt/warzone-mobile/articles/warzone-mobile-faq" target="_blank" rel="noopener">FAQ Warzone Mobile</a></li>
+        <li><a href="https://store.steampowered.com/app/1962663/Call_of_Duty_Warzone/" target="_blank" rel="noopener">Warzone na Steam</a></li>
+      </ul>
+    </section>
+  </main>
 
-      const questionEl = document.createElement('div');
-      questionEl.className = 'question';
-      questionEl.textContent = `${currentQuestion + 1}. ${currentQuiz.question}`;
-      quizContainer.appendChild(questionEl);
+  <button id="topBtn" aria-label="Voltar ao topo">⬆</button>
 
-      const answersList = document.createElement('ul');
-      answersList.className = 'answers';
+  <footer>
+    <p>© 2025 KAUAN RAMOS | Site criado para informar sobre Call of Duty: Warzone</p>
+  </footer>
 
-      currentQuiz.answers.forEach((answer, idx) => {
-        const li = document.createElement('li');
+<script>
+  // Scroll to top button
+  const topBtn = document.getElementById('topBtn');
 
-        const input = document.createElement('input');
-        input.type = 'radio';
-        input.id = `answer${idx}`;
-        input.name = 'answer';
-        input.value = answer.correct;
-
-        const label = document.createElement('label');
-        label.htmlFor = `answer${idx}`;
-        label.className = 'answer-label';
-        label.textContent = answer.text;
-
-        li.appendChild(input);
-        li.appendChild(label);
-        answersList.appendChild(li);
-      });
-
-      quizContainer.appendChild(answersList);
+  window.onscroll = function() {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      topBtn.style.display = "block";
+    } else {
+      topBtn.style.display = "none";
     }
+  };
 
-    function resetState() {
-      nextBtn.disabled = true;
-      nextBtn.setAttribute('aria-disabled', 'true');
-      resultDiv.textContent = '';
-      quizContainer.innerHTML = '';
-    }
-
-    quizContainer.addEventListener('change', e => {
-      if (e.target.name === 'answer') {
-        nextBtn.disabled = false;
-        nextBtn.setAttribute('aria-disabled', 'false');
-      }
-    });
-
-    nextBtn.addEventListener('click', () => {
-      const selectedAnswer = document.querySelector('input[name="answer"]:checked');
-      if (!selectedAnswer) return;
-
-      if (selectedAnswer.value === 'true') {
-        score++;
-      }
-
-      currentQuestion++;
-
-      if (currentQuestion < quizData.length) {
-        loadQuestion();
-        nextBtn.disabled = true;
-        nextBtn.setAttribute('aria-disabled', 'true');
-      } else {
-        showResult();
-      }
-    });
-
-    function showResult() {
-      quizContainer.innerHTML = '';
-      nextBtn.style.display = 'none';
-      resultDiv.innerHTML = `Você acertou <strong>${score}</strong> de <strong>${quizData.length}</strong> perguntas!`;
-
-      const feedback = document.createElement('p');
-      if (score === quizData.length) {
-        feedback.textContent = 'Sensacional! Você é um verdadeiro corinthiano!';
-      } else if (score >= quizData.length / 2) {
-        feedback.textContent = 'Bom trabalho! Você conhece bem o Timão.';
-      } else {
-        feedback.textContent = 'A torcida do Timão espera por você - estude mais!';
-      }
-      resultDiv.appendChild(feedback);
-    }
-
-    // Carrega a primeira pergunta no início
-    loadQuestion();
-  </script>
+  topBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
 </body>
 </html>
+
