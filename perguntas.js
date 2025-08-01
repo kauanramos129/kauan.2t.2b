@@ -1,53 +1,53 @@
 criaCartao(
-    'Futebol',
-    'Qual é o objetivo principal de uma partida de futebol?',
-    'Marcar mais gols que o time adversário.'
+    'Super 11',
+    'Qual é o objetivo principal do jogo Super 11?',
+    'Marcar mais pontos que o time adversário.'
 )
 
 criaCartao(
-    'Futebol',
-    'Quantos jogadores cada time tem em campo durante uma partida?',
+    'Super 11',
+    'Quantos jogadores cada time tem em campo durante uma partida de Super 11?',
     'Cada time tem 11 jogadores em campo.'
 )
 
 criaCartao(
-    'Futebol',
-    'O que é um cartão vermelho?',
-    'Um cartão vermelho é mostrado ao jogador que comete uma falta grave, resultando em sua expulsão do jogo.'
+    'Super 11',
+    'O que acontece quando um jogador comete uma falta grave em Super 11?',
+    'O jogador pode receber um cartão vermelho, resultando em sua expulsão do jogo.'
 )
 
 criaCartao(
-    'Futebol',
-    'O que é um gol contra?',
-    'Um gol marcado por um jogador em sua própria meta, resultando em um ponto para o time adversário.'
+    'Super 11',
+    'O que é um ponto contra em Super 11?',
+    'Um ponto marcado por um jogador em sua própria meta, resultando em um ponto para o time adversário.'
 )
 
 criaCartao(
-    'Futebol',
-    'Qual é a duração de uma partida de futebol profissional?',
-    'Uma partida de futebol profissional tem duas partes de 45 minutos cada, totalizando 90 minutos, sem contar o tempo adicional.'
+    'Super 11',
+    'Qual é a duração de uma partida de Super 11?',
+    'Uma partida de Super 11 tem duas partes de 45 minutos cada, totalizando 90 minutos, sem contar o tempo adicional.'
 )
 
 criaCartao(
-    'Futebol',
-    'O que é um pênalti?',
-    'Um pênalti é uma cobrança feita a partir da marca de 11 metros, concedida quando uma falta é cometida dentro da área penal.'
+    'Super 11',
+    'O que é uma cobrança de falta em Super 11?',
+    'Uma cobrança feita a partir do local da falta, concedida quando uma infração é cometida.'
 )
 
 criaCartao(
-    'Futebol',
-    'Qual é o nome do torneio internacional de seleções mais importante?',
-    'A Copa do Mundo da FIFA.'
+    'Super 11',
+    'Qual é o nome do torneio internacional mais importante de Super 11?',
+    'O Campeonato Mundial de Super 11.'
 )
 
 criaCartao(
-    'Futebol',
-    'O que é um drible?',
-    'Um drible é uma habilidade utilizada para passar por um defensor, mantendo a posse da bola.'
+    'Super 11',
+    'O que é uma jogada especial em Super 11?',
+    'Uma habilidade utilizada para surpreender o defensor, mantendo a posse da bola.'
 )
 
 criaCartao(
-    'Futebol',
-    'Qual é a função principal de um goleiro?',
+    'Super 11',
+    'Qual é a função principal de um goleiro em Super 11?',
     'Impedir que a bola entre no gol, defendendo os chutes dos jogadores adversários.'
 )
